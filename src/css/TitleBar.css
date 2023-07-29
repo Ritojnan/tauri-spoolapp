@@ -1,0 +1,47 @@
+/* Add your custom styles for the macOS-inspired title bar here */
+.mac-title-bar {
+  background-color: #333; /* Dark mode background color */
+  height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.mac-title-bar-title {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: #f0f0f0; /* Light color for the title in dark mode */
+  margin-left: auto; /* Align the title to the right */
+}
+
+.mac-title-bar-title img {
+  margin-right: 5px;
+}
+
+.mac-title-bar-controls {
+  display: flex;
+  align-items: center;
+}
+
+.mac-title-bar-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 4px;
+}
+
+.mac-title-bar-button.minimize {
+  background-color: #fcba03;
+}
+
+.mac-title-bar-button.maximize {
+  background-color: #26c281;
+}
+
+.mac-title-bar-button.close {
+  background-color: #eb4d5c;
+}
+
+/* Add more custom styling for the buttons as needed */
