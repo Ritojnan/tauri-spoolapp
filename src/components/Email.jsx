@@ -124,9 +124,13 @@ const Email = () => {
         showDomainError(true);
       }
       var userID = "-1";
-      console.log(email,domain,userID)
-      localStorage.setItem("firsttime","false")
-      navigate('/')//dummy navigation --do not use in production
+       //dummy navigation --do not use in production
+      localStorage.setItem("firsttime", "false");//DEVONLY
+      localStorage.setItem("userEmail", email);//DEVONLY
+      localStorage.setItem("domain", domain); //DEVONLY
+      localStorage.setItem("userID", "userID-DUMMY"+email);//DEVONLY
+      console.log(email, domain, userID);
+      navigate("/search");//DEVONLY
 
       validateUser(email).then((response) => {
         response.json().then((resObj) => {
@@ -143,7 +147,8 @@ const Email = () => {
                   localStorage.setItem("userEmail", email); // Add email value to localStorage
                   localStorage.setItem("domain", domain); // Add domain value to localStorage
                   localStorage.setItem("userID", userID);
-                  navigate('/search')
+                  localStorage.setItem("firsttime", "false");
+                  navigate("/search");
                 }
               });
             });
