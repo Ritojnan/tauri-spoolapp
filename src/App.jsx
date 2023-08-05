@@ -8,7 +8,6 @@ import "./css/Style.css";
 
 import RootLayout from "./layouts/RootLayout.jsx";
 import Email from "./components/Email";
-import Default from "./components/Default";
 import Search from "./components/Search";
 
 const router = createBrowserRouter(
@@ -17,7 +16,7 @@ const router = createBrowserRouter(
       <Route index element={<Email />} />
       <Route path="email" element={<Email />} />
       <Route path="search" element={<Search/>} />
-      <Route path="*" element={<Default/> } />
+      <Route path="*" element={<Email/> } />
     </Route>
   )
 );

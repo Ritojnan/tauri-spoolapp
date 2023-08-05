@@ -12,23 +12,32 @@ fn set_auto_launch(app_name: &str, app_path: &str, enable: bool) {
         .set_use_launch_agent(true)
         .build()
         .unwrap();
+    auto.enable().unwrap();
 
-    if enable {
-        auto.enable().unwrap();
-        println!("Result")
-        } else {
-        auto.disable().unwrap();
-    }
+    // if enable {
+    //     println!("Result")
+    //     } else {
+    //     auto.disable().unwrap();
+    //     println!("Result--")
+
+    // }
 }
 
+// fn get_exe_path() -> String {
+//     match env::current_exe() {
+//         Ok(exe_path) => exe_path.display().to_string(),
+//         Err(e) => format!("failed to get current exe path: {}", e),
+//     }
+// }
 #[tauri::command]
-fn get_exe_path() -> String {
-    match env::current_exe() {
-        Ok(exe_path) => exe_path.display().to_string(),
-        Err(e) => format!("failed to get current exe path: {}", e),
+fn get_exe_path() -> Option<String> {
+    if let Ok(exe_path) = env::current_exe() {
+        if let Some(path_str) = exe_path.to_str() {
+            return Some(path_str.to_string());
+        }
     }
+    None
 }
-
 #[tauri::command]
 fn is_process_running(name: &str) -> bool {
     let mut system = System::new();

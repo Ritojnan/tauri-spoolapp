@@ -18,7 +18,7 @@ async function resizeWindow(width, height) {
 let getDomain = (authId) => {
   ////please note getDomain is called from playbook route on main server and not NLP server1
   ////coz user records are on main server and not NLP server.
-  playbookMaps_url = "https://api.spoolapp.co/playbookMaps";
+  let playbookMaps_url = "https://api.spoolapp.co/playbookMaps";
   return fetch(`${playbookMaps_url}/getDomain/${authId}`);
 };
 
@@ -121,16 +121,16 @@ const Email = () => {
       ]; // Replace with your array of domains
       var isInArray = domainsArray.includes(domain);
       if (isInArray) {
-        showDomainError(true);
+        setShowDomainError(true);
       }
       var userID = "-1";
        //dummy navigation --do not use in production
-      localStorage.setItem("firsttime", "false");//DEVONLY
-      localStorage.setItem("userEmail", email);//DEVONLY
-      localStorage.setItem("domain", domain); //DEVONLY
-      localStorage.setItem("userID", "userID-DUMMY"+email);//DEVONLY
-      console.log(email, domain, userID);
-      navigate("/search");//DEVONLY
+      // localStorage.setItem("firsttime", "false");//DEVONLY
+      // localStorage.setItem("userEmail", email);//DEVONLY
+      // localStorage.setItem("domain", domain); //DEVONLY
+      // localStorage.setItem("userID", "userID-DUMMY"+email);//DEVONLY
+      // console.log(email, domain, userID);
+      // navigate("/search");//DEVONLY
 
       validateUser(email).then((response) => {
         response.json().then((resObj) => {
